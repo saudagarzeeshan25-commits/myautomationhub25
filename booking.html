@@ -563,7 +563,7 @@
             
             try {
                 // Send to Google Sheets (if configured)
-                if (GOOGLE_SCRIPT_URL && GOOGLE_SCRIPT_URL !== 'YOUR-GOOGLE-SCRIPT-URL-HERE') {
+                if (GOOGLE_SCRIPT_URL && GOOGLE_SCRIPT_URL !== 'https://script.google.com/macros/s/AKfycbyG0HzwOTC5cKUj_NJcQr0ixGSOKWNlwP7uAKnWs8SsVTv0JX9mRfM6n2w45SIJEMWy/exec') {
                     await fetch(GOOGLE_SCRIPT_URL, {
                         method: 'POST',
                         mode: 'no-cors',
@@ -581,7 +581,7 @@
                 
                 // Redirect to Calendly with pre-filled info
                 setTimeout(() => {
-                    const calendlyLink = CALENDLY_LINK !== 'YOUR-CALENDLY-LINK-HERE' 
+                    const calendlyLink = CALENDLY_LINK !== 'https://calendly.com/saudagarzeeshan25/30min' 
                         ? CALENDLY_LINK 
                         : 'https://calendly.com';
                     
@@ -597,7 +597,7 @@
                 console.error('Error:', error);
                 // Still redirect to Calendly even if submission fails
                 setTimeout(() => {
-                    window.location.href = CALENDLY_LINK !== 'YOUR-CALENDLY-LINK-HERE' 
+                    window.location.href = CALENDLY_LINK !== 'https://calendly.com/saudagarzeeshan25/30min' 
                         ? CALENDLY_LINK 
                         : 'https://calendly.com';
                 }, 1500);
