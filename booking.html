@@ -11,9 +11,8 @@
     
     <!-- Google Apps Script for Form Submission -->
     <script>
-        // This will be populated with your Google Apps Script URL
-        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyG0HzwOTC5cKUj_NJcQr0ixGSOKWNlwP7uAKnWs8SsVTv0JX9mRfM6n2w45SIJEMWy/exec";
-        const CALENDLY_LINK = "https://calendly.com/saudagarzeeshan25/30min";
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxCdPvyRur8opneGv75BK5tV1T48CYtC9SHHCCaJxlC3vrGlspD8qNuwprTQ--RpzeD/exec';
+        const CALENDLY_LINK = 'https://calendly.com/saudagarzeeshan25/30min';
     </script>
     
     <style>
@@ -544,10 +543,13 @@
         document.getElementById('bookingForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             
+            const submitBtn = document.getElementById('submitBtn');
+            const loadingMsg = document.getElementById('loadingMessage');
+            const form = document.getElementById('bookingForm');
+
             // Show loading
-            document.getElementById('loadingMessage').classList.add('show');
-            document.getElementById('submitBtn').disabled = true;
-            document.getElementById('submitBtn').textContent = 'Saving...';
+            form.style.display = 'none';
+            loadingMsg.classList.add('show');
             
             // Collect form data
             const formData = {
@@ -555,53 +557,36 @@
                 lastName: document.getElementById('lastName').value,
                 email: document.getElementById('email').value,
                 phone: document.getElementById('phone').value,
-                company: document.getElementById('company').value,
+                company: document.getElementById('company').value || 'N/A',
                 service: document.getElementById('service').value,
-                message: document.getElementById('message').value,
-                timestamp: new Date().toISOString()
+                message: document.getElementById('message').value || 'N/A',
+                timestamp: new Date().toLocaleString()
             };
             
-            try {
-                // Send to Google Sheets (if configured)
-                if (GOOGLE_SCRIPT_URL && GOOGLE_SCRIPT_URL !== 'https://script.google.com/macros/s/AKfycbyG0HzwOTC5cKUj_NJcQr0ixGSOKWNlwP7uAKnWs8SsVTv0JX9mRfM6n2w45SIJEMWy/exec') {
+            // Save to Google Sheets
+            if (GOOGLE_SCRIPT_URL) {
+                try {
                     await fetch(GOOGLE_SCRIPT_URL, {
                         method: 'POST',
                         mode: 'no-cors',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
+                        headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(formData)
                     });
+                } catch(err) {
+                    console.log('Sheet save attempted:', err);
                 }
-                
-                // Store in localStorage as backup
-                const submissions = JSON.parse(localStorage.getItem('bookingSubmissions') || '[]');
-                submissions.push(formData);
-                localStorage.setItem('bookingSubmissions', JSON.stringify(submissions));
-                
-                // Redirect to Calendly with pre-filled info
-                setTimeout(() => {
-                    const calendlyLink = CALENDLY_LINK !== 'https://calendly.com/saudagarzeeshan25/30min' 
-                        ? CALENDLY_LINK 
-                        : 'https://calendly.com';
-                    
-                    // Pre-fill Calendly with form data
-                    const calendlyUrl = new URL(calendlyLink);
-                    calendlyUrl.searchParams.set('name', `${formData.firstName} ${formData.lastName}`);
-                    calendlyUrl.searchParams.set('email', formData.email);
-                    
-                    window.location.href = calendlyUrl.toString();
-                }, 1500);
-                
-            } catch (error) {
-                console.error('Error:', error);
-                // Still redirect to Calendly even if submission fails
-                setTimeout(() => {
-                    window.location.href = CALENDLY_LINK !== 'https://calendly.com/saudagarzeeshan25/30min' 
-                        ? CALENDLY_LINK 
-                        : 'https://calendly.com';
-                }, 1500);
             }
+
+            // Build Calendly URL with pre-filled info
+            const baseLink = CALENDLY_LINK;
+            const url = new URL(baseLink);
+            url.searchParams.set('name', `${formData.firstName} ${formData.lastName}`);
+            url.searchParams.set('email', formData.email);
+            
+            // Redirect after short delay
+            setTimeout(() => {
+                window.location.href = url.toString();
+            }, 1200);
         });
     </script>
 </body>
