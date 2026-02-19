@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - My Automation Hub</title>
+    <link rel="icon" type="image/jpeg" href="logo.jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00D9FF;
+            --accent: #FF8A00;
+            --purple: #7C3AED;
+            --dark: #0A0E27;
+            --darker: #050816;
+            --gradient-1: linear-gradient(135deg, #00D9FF 0%, #7C3AED 100%);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Work Sans', sans-serif; background: var(--darker); color: white; }
+
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            padding: 1rem 5%; background: rgba(10,14,39,0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,217,255,0.1);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo-container { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+        .logo-image { width: 50px; height: 50px; object-fit: contain; mix-blend-mode: screen; }
+        .logo-text {
+            font-family: 'Orbitron', sans-serif; font-size: 1.3rem; font-weight: 900;
+            background: var(--gradient-1); -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
+        .cta-button {
+            padding: 0.75rem 2rem; background: var(--gradient-1); color: white;
+            border: none; border-radius: 50px; font-weight: 600; cursor: pointer;
+            text-decoration: none; font-size: 0.95rem;
+        }
+
+        /* Hero */
+        .page-hero {
+            padding: 160px 5% 80px; text-align: center;
+            background: linear-gradient(135deg, #050816 0%, #0A0E27 50%, #0d0f2e 100%);
+            position: relative; overflow: hidden;
+        }
+        .page-hero::before {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(0,217,255,0.1) 0%, transparent 60%),
+                        radial-gradient(circle at 70% 50%, rgba(124,58,237,0.1) 0%, transparent 60%);
+        }
+        .page-hero h1 {
+            font-family: 'Orbitron', sans-serif; font-size: 3.5rem; font-weight: 900;
+            margin-bottom: 1.5rem; position: relative;
+        }
+        .page-hero h1 span { background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .page-hero p { font-size: 1.2rem; color: rgba(255,255,255,0.7); max-width: 650px; margin: 0 auto; line-height: 1.7; position: relative; }
+
+        /* Sections */
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 5%; }
+
+        .story-section { padding: 7rem 5%; }
+        .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; max-width: 1100px; margin: 0 auto; }
+        .story-badge {
+            display: inline-block; background: rgba(0,217,255,0.1); border: 1px solid rgba(0,217,255,0.3);
+            color: var(--primary); padding: 0.4rem 1rem; border-radius: 50px;
+            font-size: 0.85rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1.5rem;
+        }
+        .story-text h2 { font-family: 'Orbitron', sans-serif; font-size: 2.2rem; margin-bottom: 1.5rem; line-height: 1.3; }
+        .story-text p { color: rgba(255,255,255,0.75); line-height: 1.9; margin-bottom: 1.2rem; font-size: 1.05rem; }
+        .story-visual {
+            background: rgba(255,255,255,0.03); border: 1px solid rgba(0,217,255,0.15);
+            border-radius: 25px; padding: 3rem; text-align: center;
+        }
+        .founder-avatar {
+            width: 120px; height: 120px; background: var(--gradient-1);
+            border-radius: 50%; margin: 0 auto 1.5rem;
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Orbitron', sans-serif; font-size: 2.5rem; font-weight: 900; color: white;
+            box-shadow: 0 10px 40px rgba(0,217,255,0.4);
+        }
+        .founder-name { font-family: 'Orbitron', sans-serif; font-size: 1.2rem; color: white; margin-bottom: 0.5rem; }
+        .founder-title { color: var(--primary); font-size: 0.9rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1.5rem; }
+        .founder-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
+        .founder-tag {
+            background: rgba(255,138,0,0.1); border: 1px solid rgba(255,138,0,0.3);
+            color: var(--accent); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem;
+        }
+
+        /* Values */
+        .values-section { padding: 7rem 5%; background: rgba(255,255,255,0.02); }
+        .section-title { font-family: 'Orbitron', sans-serif; font-size: 2.5rem; text-align: center; margin-bottom: 1rem; }
+        .section-subtitle { color: rgba(255,255,255,0.6); text-align: center; margin-bottom: 4rem; font-size: 1.1rem; }
+        .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; max-width: 1100px; margin: 0 auto; }
+        .value-card {
+            background: rgba(255,255,255,0.04); border: 1px solid rgba(0,217,255,0.15);
+            border-radius: 20px; padding: 2.5rem; transition: all 0.3s;
+        }
+        .value-card:hover { background: rgba(255,255,255,0.07); border-color: var(--primary); transform: translateY(-5px); }
+        .value-icon {
+            width: 60px; height: 60px; background: var(--gradient-1); border-radius: 15px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.8rem; margin-bottom: 1.5rem;
+        }
+        .value-card h3 { font-family: 'Orbitron', sans-serif; font-size: 1.1rem; margin-bottom: 1rem; color: var(--primary); }
+        .value-card p { color: rgba(255,255,255,0.7); line-height: 1.7; font-size: 0.95rem; }
+
+        /* What I Do */
+        .services-section { padding: 7rem 5%; }
+        .services-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; max-width: 1100px; margin: 4rem auto 0; }
+        .service-item {
+            display: flex; gap: 1.5rem; align-items: flex-start;
+            background: rgba(255,255,255,0.03); border: 1px solid rgba(0,217,255,0.1);
+            border-radius: 15px; padding: 1.8rem; transition: all 0.3s;
+        }
+        .service-item:hover { border-color: rgba(0,217,255,0.4); background: rgba(0,217,255,0.04); }
+        .service-num {
+            min-width: 45px; height: 45px; background: var(--gradient-1);
+            border-radius: 12px; display: flex; align-items: center; justify-content: center;
+            font-family: 'Orbitron', sans-serif; font-weight: 900; font-size: 1rem;
+        }
+        .service-item h4 { font-family: 'Orbitron', sans-serif; font-size: 0.95rem; margin-bottom: 0.5rem; color: white; }
+        .service-item p { color: rgba(255,255,255,0.65); font-size: 0.9rem; line-height: 1.6; }
+
+        /* Why Choose */
+        .why-section { padding: 7rem 5%; background: rgba(255,255,255,0.02); }
+        .why-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 1100px; margin: 4rem auto 0; }
+        .why-item {
+            display: flex; gap: 1rem; align-items: flex-start;
+            padding: 1.5rem;
+        }
+        .why-check {
+            width: 28px; height: 28px; background: rgba(0,217,255,0.15); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--primary); font-size: 0.8rem; flex-shrink: 0; margin-top: 2px;
+        }
+        .why-item h4 { color: white; font-weight: 600; margin-bottom: 0.4rem; }
+        .why-item p { color: rgba(255,255,255,0.65); font-size: 0.9rem; line-height: 1.6; }
+
+        /* CTA */
+        .about-cta {
+            padding: 7rem 5%; text-align: center;
+            background: linear-gradient(135deg, rgba(0,217,255,0.08) 0%, rgba(124,58,237,0.08) 100%);
+            border-top: 1px solid rgba(0,217,255,0.1);
+        }
+        .about-cta h2 { font-family: 'Orbitron', sans-serif; font-size: 2.5rem; margin-bottom: 1.5rem; }
+        .about-cta p { color: rgba(255,255,255,0.7); font-size: 1.1rem; max-width: 550px; margin: 0 auto 2.5rem; line-height: 1.7; }
+        .cta-btn {
+            display: inline-block; padding: 1rem 3rem; background: var(--gradient-1);
+            color: white; border-radius: 50px; font-weight: 700; text-decoration: none;
+            font-size: 1.05rem; transition: all 0.3s; box-shadow: 0 4px 20px rgba(0,217,255,0.4);
+        }
+        .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,217,255,0.6); }
+
+        /* Footer */
+        footer { background: #030611; padding: 2rem 5%; text-align: center; border-top: 1px solid rgba(255,255,255,0.06); }
+        footer p { color: rgba(255,255,255,0.4); font-size: 0.9rem; }
+
+        @media(max-width: 768px) {
+            .story-grid, .values-grid, .services-list, .why-grid { grid-template-columns: 1fr; }
+            .page-hero h1 { font-size: 2.2rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo-container">
+            <img src="logo.jpeg" alt="My Automation Hub" class="logo-image">
+            <span class="logo-text">MY AUTOMATION HUB</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#workflow">Workflow</a></li>
+            <li><a href="index.html#integration">Integration</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+        <a href="booking.html" class="cta-button">Book Consultation</a>
+    </nav>
+
+    <section class="page-hero">
+        <h1>About <span>My Automation Hub</span></h1>
+        <p>A solo automation specialist on a mission to help small businesses and entrepreneurs reclaim their time through intelligent automation.</p>
+    </section>
+
+    <!-- Story -->
+    <section class="story-section">
+        <div class="story-grid">
+            <div class="story-text">
+                <span class="story-badge">The Story</span>
+                <h2>Built by One Expert, For Your Business</h2>
+                <p>My Automation Hub was founded on a simple belief: every business — no matter the size — deserves access to powerful automation tools that were once only available to large corporations with big tech teams.</p>
+                <p>As a solo automation specialist, I bring a personal approach to every project. When you work with me, you speak directly with the person building your solution — no account managers, no junior handoffs, no miscommunication.</p>
+                <p>I focus on understanding your exact needs, designing lean and effective automation workflows, and delivering results that actually move the needle for your business.</p>
+            </div>
+            <div class="story-visual">
+                <div class="founder-avatar">Z</div>
+                <div class="founder-name">Saudagar Zeeshan</div>
+                <div class="founder-title">Founder & Automation Specialist</div>
+                <div class="founder-tags">
+                    <span class="founder-tag">n8n Expert</span>
+                    <span class="founder-tag">Zapier</span>
+                    <span class="founder-tag">Make.com</span>
+                    <span class="founder-tag">API Integration</span>
+                    <span class="founder-tag">AI Workflows</span>
+                    <span class="founder-tag">Google Workspace</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values -->
+    <section class="values-section">
+        <div class="container">
+            <h2 class="section-title">What I Stand For</h2>
+            <p class="section-subtitle">The principles that guide every project and every client relationship</p>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">🎯</div>
+                    <h3>Honesty First</h3>
+                    <p>I only recommend automation that genuinely fits your business. No overselling, no unnecessary complexity — just what works for you.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">⚡</div>
+                    <h3>Speed & Clarity</h3>
+                    <p>Clear timelines, fast delivery, and no-jargon communication. You'll always know exactly what I'm building and why.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🔒</div>
+                    <h3>Your Data, Safe</h3>
+                    <p>I treat your business data with the utmost confidentiality. Every automation is built with security and privacy in mind from day one.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🤝</div>
+                    <h3>Long-Term Partnership</h3>
+                    <p>I'm not here for a one-time transaction. I aim to be your go-to automation partner as your business grows and your needs evolve.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">💡</div>
+                    <h3>Results-Driven</h3>
+                    <p>Every automation I build is measured against real outcomes — time saved, errors reduced, revenue protected. If it doesn't deliver, we iterate.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">📚</div>
+                    <h3>Always Learning</h3>
+                    <p>The automation landscape changes fast. I continuously upskill in the latest tools and techniques so your solutions stay cutting-edge.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services-section">
+        <div class="container">
+            <h2 class="section-title">What I Build For You</h2>
+            <p class="section-subtitle">Practical automation solutions that solve real business problems</p>
+            <div class="services-list">
+                <div class="service-item">
+                    <div class="service-num">01</div>
+                    <div>
+                        <h4>Workflow Automation</h4>
+                        <p>Automate repetitive manual tasks across your team — from lead follow-ups to invoice generation and report delivery.</p>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="service-num">02</div>
+                    <div>
+                        <h4>API & System Integration</h4>
+                        <p>Connect your tools so they talk to each other automatically — CRMs, email platforms, spreadsheets, payment gateways, and more.</p>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="service-num">03</div>
+                    <div>
+                        <h4>AI-Powered Automations</h4>
+                        <p>Use AI to categorise data, draft responses, summarise reports, and make smart decisions inside your automated workflows.</p>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="service-num">04</div>
+                    <div>
+                        <h4>Client Onboarding Systems</h4>
+                        <p>Fully automated onboarding flows — welcome emails, document collection, calendar bookings, and account setup on autopilot.</p>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="service-num">05</div>
+                    <div>
+                        <h4>E-commerce Automation</h4>
+                        <p>Automate order notifications, inventory alerts, abandoned cart follow-ups, and customer support ticket routing.</p>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="service-num">06</div>
+                    <div>
+                        <h4>Custom Solutions</h4>
+                        <p>Have a unique problem? I'll design a tailored automation from scratch that fits exactly how your business operates.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose -->
+    <section class="why-section">
+        <div class="container">
+            <h2 class="section-title">Why Work With Me?</h2>
+            <p class="section-subtitle">The advantages of a dedicated solo specialist over a large agency</p>
+            <div class="why-grid">
+                <div class="why-item">
+                    <div class="why-check">✓</div>
+                    <div>
+                        <h4>You Talk Directly to the Expert</h4>
+                        <p>No account managers or project coordinators in between. Every conversation is with the person actually building your automation.</p>
+                    </div>
+                </div>
+                <div class="why-item">
+                    <div class="why-check">✓</div>
+                    <div>
+                        <h4>Faster Turnaround</h4>
+                        <p>Without layers of approval and team handoffs, I move faster than agencies. Most projects are scoped, started, and delivered quicker.</p>
+                    </div>
+                </div>
+                <div class="why-item">
+                    <div class="why-check">✓</div>
+                    <div>
+                        <h4>Focused, Personal Attention</h4>
+                        <p>I take on a limited number of clients at a time so every project gets the full focus it deserves — not 10% of a distracted team.</p>
+                    </div>
+                </div>
+                <div class="why-item">
+                    <div class="why-check">✓</div>
+                    <div>
+                        <h4>100% Satisfaction Commitment</h4>
+                        <p>I don't close a project until you're genuinely happy with the result. Your success is my reputation.</p>
+                    </div>
+                </div>
+                <div class="why-item">
+                    <div class="why-check">✓</div>
+                    <div>
+                        <h4>Transparent Pricing</h4>
+                        <p>No hidden fees or surprise invoices. Every project is scoped clearly upfront so you know exactly what you're investing.</p>
+                    </div>
+                </div>
+                <div class="why-item">
+                    <div class="why-check">✓</div>
+                    <div>
+                        <h4>Free Strategy Consultation</h4>
+                        <p>Before any paid work, we have a free 30-minute call to assess your needs and confirm automation is the right solution for you.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="about-cta">
+        <h2>Let's Work Together</h2>
+        <p>Ready to save hours every week and grow your business on autopilot? Book a free strategy call — no obligation, just a conversation.</p>
+        <a href="booking.html" class="cta-btn">Book Free Consultation</a>
+    </section>
+
+    <footer>
+        <p>© 2026 My Automation Hub. All rights reserved.</p>
+    </footer>
+</body>
+</html>

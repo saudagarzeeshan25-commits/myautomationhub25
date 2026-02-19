@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - My Automation Hub</title>
+    <link rel="icon" type="image/jpeg" href="logo.jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary:#00D9FF; --accent:#FF8A00; --dark:#0A0E27; --darker:#050816; --gradient-1:linear-gradient(135deg,#00D9FF 0%,#7C3AED 100%); }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:'Work Sans',sans-serif; background:var(--darker); color:white; }
+        nav { position:fixed; top:0; width:100%; z-index:1000; padding:1rem 5%; background:rgba(10,14,39,0.98); backdrop-filter:blur(10px); border-bottom:1px solid rgba(0,217,255,0.1); display:flex; justify-content:space-between; align-items:center; }
+        .logo-container { display:flex; align-items:center; gap:0.75rem; text-decoration:none; }
+        .logo-image { width:50px; height:50px; object-fit:contain; mix-blend-mode:screen; }
+        .logo-text { font-family:'Orbitron',sans-serif; font-size:1.3rem; font-weight:900; background:var(--gradient-1); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+        .nav-links { display:flex; gap:2rem; list-style:none; }
+        .nav-links a { color:rgba(255,255,255,0.8); text-decoration:none; }
+        .nav-links a:hover { color:var(--primary); }
+        .cta-button { padding:0.75rem 2rem; background:var(--gradient-1); color:white; border:none; border-radius:50px; font-weight:600; text-decoration:none; }
+
+        .page-hero { padding:140px 5% 60px; text-align:center; background:linear-gradient(135deg,#050816 0%,#0A0E27 100%); }
+        .page-hero h1 { font-family:'Orbitron',sans-serif; font-size:2.8rem; margin-bottom:1rem; }
+        .page-hero h1 span { background:var(--gradient-1); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+        .page-hero p { color:rgba(255,255,255,0.6); font-size:0.95rem; }
+
+        .toc { max-width:850px; margin:3rem auto 0; padding:0 5%; }
+        .toc-box { background:rgba(0,217,255,0.06); border:1px solid rgba(0,217,255,0.2); border-radius:15px; padding:1.5rem 2rem; }
+        .toc-box h3 { font-family:'Orbitron',sans-serif; font-size:0.9rem; color:var(--primary); margin-bottom:1rem; }
+        .toc-box ol { padding-left:1.5rem; }
+        .toc-box ol li { color:rgba(255,255,255,0.7); margin-bottom:0.5rem; font-size:0.9rem; }
+        .toc-box ol li a { color:rgba(255,255,255,0.7); text-decoration:none; transition:color 0.2s; }
+        .toc-box ol li a:hover { color:var(--primary); }
+
+        .policy-body { max-width:850px; margin:0 auto; padding:4rem 5% 5rem; }
+        .last-updated { background:rgba(0,217,255,0.08); border:1px solid rgba(0,217,255,0.2); border-radius:10px; padding:1rem 1.5rem; margin-bottom:3rem; color:rgba(255,255,255,0.7); font-size:0.9rem; }
+        .last-updated strong { color:var(--primary); }
+        .policy-section { margin-bottom:3rem; }
+        .policy-section h2 { font-family:'Orbitron',sans-serif; font-size:1.2rem; color:var(--primary); margin-bottom:1.2rem; padding-bottom:0.75rem; border-bottom:1px solid rgba(0,217,255,0.15); }
+        .policy-section p { color:rgba(255,255,255,0.75); line-height:1.9; margin-bottom:1rem; font-size:0.97rem; }
+        .policy-section ul { list-style:none; margin:1rem 0; padding-left:1rem; }
+        .policy-section ul li { color:rgba(255,255,255,0.75); line-height:1.8; margin-bottom:0.6rem; font-size:0.97rem; padding-left:1.5rem; position:relative; }
+        .policy-section ul li::before { content:'→'; position:absolute; left:0; color:var(--primary); font-size:0.85rem; }
+        .highlight-box { background:rgba(255,138,0,0.08); border-left:3px solid var(--accent); border-radius:0 10px 10px 0; padding:1.2rem 1.5rem; margin:1.5rem 0; }
+        .highlight-box p { margin:0; color:rgba(255,255,255,0.8); }
+
+        footer { background:#030611; padding:2rem 5%; text-align:center; border-top:1px solid rgba(255,255,255,0.06); }
+        footer p { color:rgba(255,255,255,0.4); font-size:0.9rem; }
+        @media(max-width:768px) { .nav-links { display:none; } .page-hero h1 { font-size:2rem; } }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo-container">
+            <img src="logo.jpeg" alt="My Automation Hub" class="logo-image">
+            <span class="logo-text">MY AUTOMATION HUB</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+        <a href="booking.html" class="cta-button">Book Consultation</a>
+    </nav>
+
+    <section class="page-hero">
+        <h1>Terms of <span>Service</span></h1>
+        <p>Please read these terms carefully before engaging our services</p>
+    </section>
+
+    <div class="toc">
+        <div class="toc-box">
+            <h3>Contents</h3>
+            <ol>
+                <li><a href="#s1">Acceptance of Terms</a></li>
+                <li><a href="#s2">Services Provided</a></li>
+                <li><a href="#s3">Project Scope & Agreements</a></li>
+                <li><a href="#s4">Payment Terms</a></li>
+                <li><a href="#s5">Revisions & Changes</a></li>
+                <li><a href="#s6">Client Responsibilities</a></li>
+                <li><a href="#s7">Intellectual Property</a></li>
+                <li><a href="#s8">Confidentiality</a></li>
+                <li><a href="#s9">Limitation of Liability</a></li>
+                <li><a href="#s10">Cancellations & Refunds</a></li>
+                <li><a href="#s11">Governing Law</a></li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="policy-body">
+        <div class="last-updated"><strong>Last Updated:</strong> February 2026 &nbsp;|&nbsp; <strong>Effective Date:</strong> February 2026</div>
+
+        <div class="policy-section" id="s1">
+            <h2>1. Acceptance of Terms</h2>
+            <p>By booking a consultation, engaging services, or using this website, you ("the Client") agree to be bound by these Terms of Service. These terms form the basis of the working relationship between you and My Automation Hub ("the Service Provider"), operated by Saudagar Zeeshan.</p>
+            <p>If you do not agree to these terms, please do not use this website or engage the services provided.</p>
+        </div>
+
+        <div class="policy-section" id="s2">
+            <h2>2. Services Provided</h2>
+            <p>My Automation Hub provides automation consultancy and implementation services, including but not limited to:</p>
+            <ul>
+                <li>Workflow automation design and implementation</li>
+                <li>API and system integration between platforms</li>
+                <li>AI-powered automation workflow development</li>
+                <li>Business process automation consulting</li>
+                <li>Custom automation solutions for specific business needs</li>
+                <li>Post-delivery support and maintenance</li>
+            </ul>
+            <p>All services are delivered remotely. The exact scope of each project is agreed upon in writing before work begins.</p>
+        </div>
+
+        <div class="policy-section" id="s3">
+            <h2>3. Project Scope & Agreements</h2>
+            <p>Every project begins with a free consultation call where the Client's needs are discussed and understood. Following this, a written project scope is provided that outlines:</p>
+            <ul>
+                <li>The specific automation(s) to be built</li>
+                <li>Tools and platforms to be used</li>
+                <li>Estimated delivery timeline</li>
+                <li>Project price and payment terms</li>
+                <li>Number of included revision rounds</li>
+            </ul>
+            <p>Work begins only after the Client confirms agreement to the scope in writing (via email or message). Any features or requirements not included in the agreed scope are considered out-of-scope and may incur additional charges.</p>
+        </div>
+
+        <div class="policy-section" id="s4">
+            <h2>4. Payment Terms</h2>
+            <p>Standard payment terms are as follows:</p>
+            <ul>
+                <li>A deposit of 50% of the project fee is required before work commences</li>
+                <li>The remaining 50% is due upon project delivery and handover</li>
+                <li>For smaller projects, full payment upfront may be required</li>
+                <li>Invoices are payable within 5 business days of issue</li>
+            </ul>
+            <div class="highlight-box"><p>⚠️ Work will not commence until the initial deposit has been received. Delivery of the final project will occur once full payment has been confirmed.</p></div>
+            <p>Late payments may result in project delays. Persistent non-payment may result in suspension of service and legal recovery of funds.</p>
+        </div>
+
+        <div class="policy-section" id="s5">
+            <h2>5. Revisions & Changes</h2>
+            <p>Each project includes a defined number of revision rounds as stated in the project scope. A revision is defined as a minor adjustment or correction to the agreed deliverable — not a change in scope or the addition of new features.</p>
+            <ul>
+                <li>Revisions within scope are handled promptly at no extra charge</li>
+                <li>Requests beyond the agreed revision rounds are billed at an hourly rate</li>
+                <li>Significant changes to project scope after work has begun will be quoted separately</li>
+            </ul>
+        </div>
+
+        <div class="policy-section" id="s6">
+            <h2>6. Client Responsibilities</h2>
+            <p>To ensure projects are delivered successfully and on time, the Client agrees to:</p>
+            <ul>
+                <li>Provide timely access to required accounts, credentials, and systems</li>
+                <li>Respond to questions and feedback requests within 2 business days</li>
+                <li>Provide accurate information about business requirements upfront</li>
+                <li>Notify the Service Provider of any changes to requirements promptly</li>
+                <li>Test and review deliverables within the agreed timeframe after delivery</li>
+            </ul>
+            <p>Project delays caused by the Client's failure to provide required information or access in a timely manner are not the responsibility of My Automation Hub.</p>
+        </div>
+
+        <div class="policy-section" id="s7">
+            <h2>7. Intellectual Property</h2>
+            <p>Upon receipt of full payment, the Client owns the automation workflows, scripts, and configurations built specifically for their project. My Automation Hub retains the right to reference the type of work completed (without revealing confidential client details) for portfolio or marketing purposes, unless the Client requests otherwise in writing.</p>
+            <p>Any pre-existing tools, frameworks, or templates used in building the solution that were not created exclusively for the Client remain the intellectual property of the Service Provider or their respective owners.</p>
+        </div>
+
+        <div class="policy-section" id="s8">
+            <h2>8. Confidentiality</h2>
+            <p>I understand that in the course of a project, I may have access to sensitive business information, credentials, and processes. I agree to:</p>
+            <ul>
+                <li>Keep all client information strictly confidential</li>
+                <li>Use client data only for the purposes of completing the agreed project</li>
+                <li>Not share, sell, or disclose client information to third parties</li>
+                <li>Promptly return or destroy credentials after project delivery when requested</li>
+            </ul>
+            <p>This confidentiality commitment applies indefinitely, even after the project relationship has ended.</p>
+        </div>
+
+        <div class="policy-section" id="s9">
+            <h2>9. Limitation of Liability</h2>
+            <p>My Automation Hub provides services in good faith and to the best of its ability. However:</p>
+            <ul>
+                <li>The Service Provider is not liable for losses caused by third-party platform outages, API changes, or service interruptions beyond our control</li>
+                <li>The Client is responsible for maintaining backups of important data before automation implementation</li>
+                <li>Total liability for any claim is limited to the amount paid for the specific project in question</li>
+                <li>The Service Provider is not liable for indirect, consequential, or incidental damages</li>
+            </ul>
+            <div class="highlight-box"><p>💡 I recommend testing all automations in a controlled environment before applying them to live business-critical data.</p></div>
+        </div>
+
+        <div class="policy-section" id="s10">
+            <h2>10. Cancellations & Refunds</h2>
+            <p>The following cancellation policy applies:</p>
+            <ul>
+                <li><strong>Before work begins:</strong> Full refund of any deposit paid</li>
+                <li><strong>After work has started:</strong> The deposit is non-refundable; work completed to date will be invoiced proportionally</li>
+                <li><strong>After delivery:</strong> No refunds after the final project has been delivered and accepted</li>
+                <li><strong>Post-delivery issues:</strong> Bugs or errors within the agreed scope are fixed at no charge within the 7-day support window</li>
+            </ul>
+            <p>If you are dissatisfied at any point during the project, please communicate this immediately so I can address your concerns before delivery.</p>
+        </div>
+
+        <div class="policy-section" id="s11">
+            <h2>11. Governing Law</h2>
+            <p>These Terms of Service are governed by and construed in accordance with applicable laws. Any disputes arising from these terms or the services provided will be handled in good faith through direct communication before any formal proceedings are considered.</p>
+            <p>If you have any questions about these Terms of Service, please contact me through the booking form on this website.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 My Automation Hub. All rights reserved. | <a href="index.html" style="color:var(--primary);text-decoration:none;">Back to Home</a></p>
+    </footer>
+</body>
+</html>
